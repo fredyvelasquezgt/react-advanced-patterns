@@ -31,8 +31,10 @@ const ToggleOff = (on, children) => {
     return children
   }
 }
-// Accepts `on` and `toggle` props and returns the <Switch /> with those props.
-const ToggleButton = () => null
+
+const ToggleButton = (on, toggle) => {
+  return <Switch on={true} toggle={true} />
+}
 
 function App() {
   return (
