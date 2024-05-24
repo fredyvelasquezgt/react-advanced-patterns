@@ -8,10 +8,10 @@ function Toggle() {
   const [on, setOn] = React.useState(false)
   const toggle = () => setOn(!on)
 
-  // 🐨 replace this with a call to React.Children.map and map each child in
-  // props.children to a clone of that child with the props they need using
-  // React.cloneElement.
-   React.Children.map(props.children, child => {/* return child clone here */})
+  
+  React.Children.map(props.children, child => {
+    return React.cloneElement(child)
+  }
   // 📜 https://react.dev/reference/react/Children
   // 📜 https://react.dev/reference/react/cloneElement
   return <Switch on={on} onClick={toggle} />
@@ -21,14 +21,16 @@ function Toggle() {
 
 // Accepts `on` and `children` props and returns `children` if `on` is true
 const ToggleOn = (on, children) => {
-  if (on) {
+  if(on) {
     return children
   }
 }
 
-// Accepts `on` and `children` props and returns `children` if `on` is false
-const ToggleOff = () => null
-
+const ToggleOff = (on, children) => {
+  if(!on) {
+    return children
+  }
+}
 // Accepts `on` and `toggle` props and returns the <Switch /> with those props.
 const ToggleButton = () => null
 
