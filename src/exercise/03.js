@@ -16,7 +16,7 @@ function Toggle({children}) {
   return React.Children.map(children, child => {
     return typeof child.type === 'string'
       ? child
-      : React.cloneElement(child, {on, toggle})
+      : React.cloneElem(child, {on, toggle})
   })
 }
 
